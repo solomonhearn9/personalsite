@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Start Your Digital Growth Project | Free Consultation</title>
-    <meta name="description" content="Ready to scale your service-based business? Contact Solomon H for a free consultation on web design, SEO, and digital growth strategies. Ivy League CS + Fortune 5 experience.">
-    <meta name="keywords" content="contact, consultation, digital marketing, web design, SEO, growth consulting, free consultation">
+    <title>Contact - Let's Work Together | Solomon Hearn</title>
+    <meta name="description" content="Ready to modernize your business online? Get in touch for a no-pressure conversation about your business. Based in Cambridge and available for local meetings.">
+    <meta name="keywords" content="contact Solomon Hearn, Cambridge web designer, local business consultation, website project inquiry">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,11 +16,10 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html">Solomon H</a>
+                <a href="index.html">Solomon Hearn</a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
@@ -37,196 +36,64 @@
     <section class="contact-hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Let's <span class="gradient-text">Scale Your Business</span> Together</h1>
-                <p class="hero-subtitle">Ready to transform your digital presence? Whether you need a custom website, SEO strategy, or comprehensive growth consulting, I'm here to help your service-based business thrive online.</p>
+                <h1 class="hero-title">Let's <span class="gradient-text">Work Together</span></h1>
+                <p class="hero-subtitle">Every client relationship starts with a short, no-pressure call to understand your business. Let's talk about where you are now and where you want to be.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Options -->
-    <section class="contact-options">
+    <!-- Contact Form -->
+    <section class="contact-form-section">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Inquiry Form -->
-                <div class="contact-form-section">
-                    <div class="form-header">
-                        <h2>Start Your Project</h2>
-                        <p>Tell me about your business and goals, and I'll provide a customized strategy for your digital growth.</p>
+            <div class="contact-form-wrapper">
+                <div class="form-header">
+                    <h2>Send Me a Message</h2>
+                    <p>I usually reply within 24 hours. Let me know about your business and what you're looking for.</p>
+                </div>
+                
+                <form id="project-inquiry-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
                     </div>
                     
-                    <form id="project-inquiry-form" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="business">Business Name *</label>
-                                <input type="text" id="business" name="business" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                        </div>
-                        
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="website">Current Website (if any)</label>
-                            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business">
                         </div>
-                        
                         <div class="form-group">
-                            <label for="business-type">Business Type *</label>
-                            <select id="business-type" name="business-type" required>
-                                <option value="">Select your business type</option>
-                                <option value="dental">Dental Practice</option>
-                                <option value="medical">Medical Practice</option>
-                                <option value="medspa">Med Spa / Aesthetics</option>
-                                <option value="fitness">Fitness / Personal Training</option>
-                                <option value="legal">Legal Services</option>
-                                <option value="consulting">Consulting / Professional Services</option>
-                                <option value="wellness">Wellness / Therapy</option>
-                                <option value="other">Other Service Business</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="services">Services of Interest *</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="services" value="web-design">
-                                    <span class="checkmark"></span>
-                                    Web Design & Development
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="services" value="seo">
-                                    <span class="checkmark"></span>
-                                    SEO & Local Optimization
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="services" value="growth-consulting">
-                                    <span class="checkmark"></span>
-                                    Digital Growth Consulting
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="services" value="template">
-                                    <span class="checkmark"></span>
-                                    Website Template
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Project Budget</label>
-                            <select id="budget" name="budget">
-                                <option value="">Select your budget range</option>
-                                <option value="under-5k">Under $5,000</option>
-                                <option value="5k-10k">$5,000 - $10,000</option>
-                                <option value="10k-25k">$10,000 - $25,000</option>
-                                <option value="25k-plus">$25,000+</option>
-                                <option value="not-sure">Not sure yet</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline">Project Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">When would you like to start?</option>
-                                <option value="asap">ASAP</option>
-                                <option value="1-month">Within 1 month</option>
-                                <option value="3-months">Within 3 months</option>
-                                <option value="6-months">Within 6 months</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="challenge">What's your biggest digital marketing challenge? *</label>
-                            <textarea id="challenge" name="challenge" rows="4" placeholder="Describe your current challenges and what you'd like to achieve..." required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="goals">What are your main business goals?</label>
-                            <textarea id="goals" name="goals" rows="3" placeholder="e.g., Increase online bookings, improve local search rankings, generate more qualified leads..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-large">Send Project Inquiry</button>
-                        
-                        <p class="form-note">I'll respond within 24 hours with a customized strategy and next steps.</p>
-                    </form>
-                </div>
-
-                <!-- Contact Info & Calendly -->
-                <div class="contact-info-section">
-                    <div class="contact-info">
-                        <h3>Get a Free Consultation</h3>
-                        <p>Prefer to talk directly? Book a free 30-minute consultation to discuss your project in detail.</p>
-                        
-                        <div class="calendly-widget">
-                            <div class="calendly-placeholder">
-                                <div class="calendly-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
-                                        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <h4>Schedule a Call</h4>
-                                <p>Choose a time that works for you</p>
-                                <a href="https://calendly.com/solomon-h/consultation" class="btn btn-secondary" target="_blank">Book Free Consultation</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-details">
-                            <h4>Other Ways to Connect</h4>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
-                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Email</span>
-                                    <a href="mailto:hello@solomonh.com">hello@solomonh.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.59531 1.99522 8.06611 2.16708 8.43376 2.48353C8.8014 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.89391 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Phone</span>
-                                    <a href="tel:+1234567890">(123) 456-7890</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="contact-text">
-                                    <span class="contact-label">Location</span>
-                                    <span>Remote & On-site Available</span>
-                                </div>
-                            </div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
                     </div>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="service-interest">What are you interested in?</label>
+                        <select id="service-interest" name="service-interest">
+                            <option value="">Select an option</option>
+                            <option value="12-month-package">12-Month Growth System ($3,500)</option>
+                            <option value="retainer">Ongoing Support & Maintenance</option>
+                            <option value="consultation">Just want to talk / Not sure yet</option>
+                            <option value="other">Something else</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project, goals, or questions..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                    
+                    <p class="form-note">You can also reach me directly on <a href="https://www.linkedin.com/in/solomon-hearn" target="_blank">LinkedIn</a> if you prefer.</p>
+                </form>
             </div>
         </div>
     </section>
@@ -234,36 +101,36 @@
     <!-- FAQ Section -->
     <section class="contact-faq">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+            <h2 class="section-title">Common Questions</h2>
             <div class="faq-grid">
                 <div class="faq-item">
-                    <h3>How long does a typical project take?</h3>
-                    <p>Web design projects typically take 4-8 weeks, while SEO and growth consulting are ongoing services. I'll provide a detailed timeline during our consultation.</p>
+                    <h3>How long does a project take?</h3>
+                    <p>The 12-Month Growth System typically takes 4-6 weeks from start to launch. We'll work together to set a timeline that works for your business.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Do you work with businesses outside my industry?</h3>
-                    <p>I specialize in service-based businesses but work across many industries including dental, medical, legal, fitness, wellness, and professional services.</p>
+                    <h3>Do I need to know anything technical?</h3>
+                    <p>Not at all. I handle all the technical work and explain everything in plain English. You focus on running your business — I focus on your website.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>What's included in the free consultation?</h3>
-                    <p>We'll discuss your current digital presence, identify growth opportunities, and I'll provide specific recommendations for your business at no cost.</p>
+                    <h3>What if I need changes after launch?</h3>
+                    <p>The 12-Month Growth System includes 12 months of support. Plus, you can add ongoing maintenance for $200-400/month to keep things fresh and updated.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Do you provide ongoing support?</h3>
-                    <p>Yes! All projects include post-launch support, and I offer ongoing monthly retainers for SEO, growth consulting, and maintenance services.</p>
+                    <h3>Are you really local to Cambridge?</h3>
+                    <p>Yes! I'm based in Cambridge and available for in-person meetings at a local coffee shop when needed. No outsourcing, no agencies — just me.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>Can I purchase just a website template?</h3>
-                    <p>Absolutely! I offer ready-to-use templates for dental practices, fitness trainers, and professional services. These can be customized to match your brand.</p>
+                    <h3>Can we just talk first before committing?</h3>
+                    <p>Absolutely. Every project starts with a no-pressure conversation to understand your business and see if we're a good fit to work together.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>What makes you different from other digital marketers?</h3>
-                    <p>My unique combination of Ivy League CS education, Fortune 5 engineering experience, and professional sports background gives me a technical edge and competitive mindset that delivers exceptional results.</p>
+                    <h3>What types of businesses do you work with?</h3>
+                    <p>I specialize in service professionals — dental practices, personal trainers, wellness coaches, and local businesses that rely on trust and credibility to attract clients.</p>
                 </div>
             </div>
         </div>
@@ -274,9 +141,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Solomon H</h3>
-                    <p>Digital Growth Consultant</p>
-                    <p>Ivy League CS • Fortune 5 Engineer • Pro Basketball</p>
+                    <h3>Solomon Hearn</h3>
+                    <p>Helping Local Businesses Modernize Online</p>
+                    <p>Cambridge-Based • Service Professional Specialist</p>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
@@ -296,14 +163,13 @@
                 <div class="footer-section">
                     <h4>Connect</h4>
                     <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="https://www.linkedin.com/in/solomon-hearn" target="_blank" aria-label="LinkedIn">LinkedIn</a>
                         <a href="#" aria-label="Instagram">Instagram</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Solomon H. All rights reserved.</p>
+                <p>&copy; 2025 Solomon Hearn. All rights reserved.</p>
             </div>
         </div>
     </footer>

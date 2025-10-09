@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Growth Partner for Cambridge & Boston Dental Practices</title>
+    <meta name="description" content="Helping local dental practices attract more patients through strategic web design and Google Business optimization. Working with Cambridge practices now.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Mobile-optimized credibility kit styles */
+        .credibility-kit {
+            padding: var(--space-12) 0;
+            background: var(--primary-white);
+        }
+        .kit-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+            padding: var(--space-8);
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-white) 100%);
+            border-radius: var(--radius-2xl);
+        }
+        .kit-header h1 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+        }
+        .kit-header .subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--gray-600);
+            margin-bottom: var(--space-6);
+        }
+        .kit-intro {
+            font-size: var(--font-size-base);
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+        }
+        .quick-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin: var(--space-8) 0;
+        }
+        .stat-box {
+            background: var(--gray-50);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            border: 2px solid var(--gray-200);
+        }
+        .stat-number {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-2);
+        }
+        .stat-label {
+            font-size: var(--font-size-sm);
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        .projects-showcase {
+            margin: var(--space-12) 0;
+        }
+        .project-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
+            border: 1px solid var(--gray-200);
+        }
+        .project-card h3 {
+            color: var(--gray-900);
+            margin-bottom: var(--space-3);
+            font-size: var(--font-size-xl);
+        }
+        .project-description {
+            color: var(--gray-700);
+            margin-bottom: var(--space-4);
+            line-height: 1.5;
+        }
+        .project-image {
+            width: 100%;
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-md);
+        }
+        .project-results {
+            display: flex;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+            margin-top: var(--space-4);
+        }
+        .result-badge {
+            background: var(--gradient-primary);
+            color: var(--primary-white);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+        }
+        .credentials-section {
+            background: var(--gray-900);
+            color: var(--primary-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            margin: var(--space-12) 0;
+        }
+        .credentials-section h2 {
+            color: var(--primary-white);
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+            padding: var(--space-4);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+        }
+        .credential-icon-large {
+            font-size: var(--font-size-3xl);
+            flex-shrink: 0;
+        }
+        .credential-text {
+            flex: 1;
+        }
+        .credential-text h4 {
+            color: var(--primary-white);
+            margin-bottom: var(--space-1);
+            font-size: var(--font-size-lg);
+        }
+        .credential-text p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--font-size-sm);
+            margin: 0;
+        }
+        .approach-section {
+            margin: var(--space-12) 0;
+        }
+        .approach-section h2 {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        .approach-card {
+            background: var(--primary-white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+        .approach-card h3 {
+            color: var(--gray-900);
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        .approach-number {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-primary);
+            color: var(--primary-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .approach-card p {
+            color: var(--gray-700);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .local-advantage {
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            margin: var(--space-12) 0;
+            border: 2px solid var(--gray-200);
+        }
+        .local-advantage h2 {
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+        .local-advantage ul {
+            list-style: none;
+            padding: 0;
+        }
+        .local-advantage li {
+            padding-left: var(--space-8);
+            margin-bottom: var(--space-4);
+            position: relative;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+        .local-advantage li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-size: var(--font-size-xl);
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .special-offer {
+            background: var(--gradient-primary);
+            color: var(--primary-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            text-align: center;
+            margin: var(--space-12) 0;
+        }
+        .special-offer h2 {
+            color: var(--primary-white);
+            margin-bottom: var(--space-4);
+        }
+        .special-offer p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: var(--font-size-lg);
+            line-height: 1.6;
+            margin-bottom: var(--space-6);
+        }
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+        .contact-buttons .btn {
+            width: 100%;
+            font-size: var(--font-size-lg);
+            padding: var(--space-4);
+        }
+        .btn-white {
+            background: var(--primary-white);
+            color: var(--gray-900);
+        }
+        .btn-white:hover {
+            background: var(--gray-100);
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Solomon H</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Credibility Kit Content -->
+    <section class="credibility-kit">
+        <div class="container">
+            <!-- Header -->
+            <div class="kit-header">
+                <h1>Helping Local Dental Practices<br>Attract More Patients</h1>
+                <p class="subtitle">Digital Growth Partner for Cambridge & Boston Dentists</p>
+                <p class="kit-intro">Hi, I'm Solomon — a local software engineer helping Cambridge & Boston dental practices modernize their online presence. I just wrapped up a project for another Cambridge dentist, and I noticed your practice could be getting significantly more patient calls every month.</p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-box">
+                    <div class="stat-number">3-5x</div>
+                    <div class="stat-label">More Patient Calls in 90 Days</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">240%</div>
+                    <div class="stat-label">Increase for Recent Client</div>
+                </div>
+            </div>
+
+            <!-- Projects Showcase -->
+            <div class="projects-showcase">
+                <h2 class="section-title">Recent Dental Projects</h2>
+                
+                <div class="project-card">
+                    <h3>Cambridge Dental Practice</h3>
+                    <img src="proj1.png" alt="Cambridge Dental Practice Website" class="project-image">
+                    <p class="project-description">Complete digital transformation for established Cambridge dentist. Rebuilt website, optimized Google Business Profile, and implemented local SEO strategy.</p>
+                    <div class="project-results">
+                        <span class="result-badge">240% More Patient Calls</span>
+                        <span class="result-badge">#1 Local Rankings</span>
+                        <span class="result-badge">Automated Booking</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Boston Area Sports Training</h3>
+                    <img src="proj2.png" alt="Bridge Basketball Training" class="project-image">
+                    <p class="project-description">Professional website and booking platform for elite basketball training services. Shows my ability to build conversion-focused systems for service businesses.</p>
+                    <div class="project-results">
+                        <span class="result-badge">250% Booking Increase</span>
+                        <span class="result-badge">85% Conversion Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credentials -->
+            <div class="credentials-section">
+                <h2>Why My Background Matters</h2>
+                
+                <div class="credential-item">
+                    <span class="credential-icon-large">🏢</span>
+                    <div class="credential-text">
+                        <h4>Walmart Software Engineer</h4>
+                        <p>Built enterprise systems serving millions at a Fortune 1 company. I bring that same precision to local dental marketing.</p>
+                    </div>
+                </div>
+
+                <div class="credential-item">
+                    <span class="credential-icon-large">🎓</span>
+                    <div class="credential-text">
+                        <h4>Vanderbilt Computer Science</h4>
+                        <p>Double major in CS + Music. Analytical thinking meets creative problem-solving for growth challenges.</p>
+                    </div>
+                </div>
+
+                <div class="credential-item">
+                    <span class="credential-icon-large">📍</span>
+                    <div class="credential-text">
+                        <h4>Local to Cambridge/Boston</h4>
+                        <p>I understand this market. I know what Cambridge and Boston patients are searching for and how to capture them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Approach -->
+            <div class="approach-section">
+                <h2>How I Help You Grow</h2>
+                
+                <div class="approach-card">
+                    <h3><span class="approach-number">1</span> Analyze Your Current Setup</h3>
+                    <p>I audit your website, Google Business Profile, and local search presence to identify what's preventing you from getting more patient calls.</p>
+                </div>
+
+                <div class="approach-card">
+                    <h3><span class="approach-number">2</span> Optimize for Local Patients</h3>
+                    <p>Most dentists lose 60% of potential patients because their online presence isn't optimized for "dentist near me" searches. I fix that systematically.</p>
+                </div>
+
+                <div class="approach-card">
+                    <h3><span class="approach-number">3</span> Automated Patient Booking</h3>
+                    <p>Your website should work for you 24/7. I integrate booking systems that turn visitors into scheduled appointments automatically.</p>
+                </div>
+
+                <div class="approach-card">
+                    <h3><span class="approach-number">4</span> Ongoing Growth & Optimization</h3>
+                    <p>I track everything: calls, bookings, search rankings. We continuously improve based on real data, not guesswork.</p>
+                </div>
+            </div>
+
+            <!-- Local Advantage -->
+            <div class="local-advantage">
+                <h2>Why Local Dentists Work With Me</h2>
+                <ul>
+                    <li>I can visit your practice in person — you get the personal touch and ongoing local support</li>
+                    <li>I already have Cambridge success stories and understand local patient behavior</li>
+                    <li>I'm not an agency juggling 50 clients — you get direct access to the person doing the work</li>
+                    <li>I combine tech expertise (Walmart, Vanderbilt) with practical marketing that drives patient calls</li>
+                    <li>I speak dentist language and understand your specific challenges (insurance, reviews, emergency bookings)</li>
+                </ul>
+            </div>
+
+            <!-- Special Offer -->
+            <div class="special-offer">
+                <h2>Early Client Opportunity</h2>
+                <p>I'm building case studies with a select group of Cambridge & Boston dental practices this quarter. Because I'm still in growth mode, I'm offering reduced rates for practices I work with now — before I scale my pricing.</p>
+                <p style="font-weight: 600; font-size: var(--font-size-xl);">Let's have a 10-minute conversation about what's working best locally right now.</p>
+                
+                <div class="contact-buttons">
+                    <a href="contact.html" class="btn btn-white">Schedule Free Consultation</a>
+                    <a href="tel:+1234567890" class="btn btn-white">Call Me: (XXX) XXX-XXXX</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center;">
+                <div class="footer-section">
+                    <h3>Solomon H</h3>
+                    <p>Digital Growth Partner for Dental Practices</p>
+                    <p>Cambridge/Boston Local • Walmart Engineer • Vanderbilt CS</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

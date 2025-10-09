@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initModalFunctionality();
     initScrollAnimations();
     initNewsletterSignup();
+    initParallaxEffects();
+    initScrollReveal();
+    initNavbarEffects();
+    initTestimonialCarousel();
 });
 
 // Mobile Menu Functionality
@@ -487,6 +491,217 @@ function debounce(func, wait) {
         clearTimeout(timeout);
         timeout = setTimeout(later, wait);
     };
+}
+
+// Testimonial Carousel Functionality
+let currentTestimonialIndex = 0;
+let testimonialInterval;
+
+const testimonials = [
+    {
+        quote: "We were looking for an elite lead generation marketing agency, and Plastix Marketing more than delivered. They manage our blog, website, social media, video production, events and work directly with our sales team. We saw an immediate increase in the number of leads coming into the practice. We were able to close more surgeries as a direct result of Plastix's strategies to help our practice consultants automate many of their processes. They took the time to understand who we are as a company and have written many eBooks that showcase my work as a plastic surgeon that we are very proud to give to our patients. We enjoy working with Plastix Marketing & consider them a valuable business partner.",
+        author: "Dr. Rosario Alvarez",
+        company: "Head Dentist at Alvarez Dental Group"
+    },
+    {
+        quote: "Working with Solomon transformed our online presence completely. Our website went from outdated and confusing to modern and conversion-focused. We've seen a 340% increase in online bookings and our Google rankings have never been better. His understanding of local SEO and dental practice marketing is exceptional.",
+        author: "Dr. Maria Rodriguez",
+        company: "Cambridge Family Dentistry"
+    },
+    {
+        quote: "Solomon helped us build a membership platform that scales with our business. The integrated payment system and class scheduling made managing our training programs so much easier. Our membership has grown 250% and we're consistently converting new clients. His technical skills combined with marketing expertise made all the difference.",
+        author: "Coach Marcus Johnson",
+        company: "Bridge Basketball Training"
+    },
+    {
+        quote: "As a small business owner, I was overwhelmed by all the digital marketing options. Solomon simplified everything, explained what we actually needed, and delivered results quickly. Our website looks professional, ranks well in Cambridge, and actually brings in new clients. He's responsive, patient, and genuinely cares about our success.",
+        author: "Sarah Chen",
+        company: "Cambridge Wellness Center"
+    },
+    {
+        quote: "The ROI from working with Solomon has been incredible. Not only did he modernize our website, but his SEO strategies put us on the first page of Google for all our key services. We track every lead and the numbers speak for themselves - we're getting 3x more qualified inquiries than before. Best investment we've made in our business.",
+        author: "David Thompson",
+        company: "Thompson Law Firm"
+    }
+];
+
+function initTestimonialCarousel() {
+    const testimonialQuote = document.querySelector('.testimonial-quote');
+    const testimonialAuthor = document.querySelector('.testimonial-author h4');
+    const testimonialCompany = document.querySelector('.testimonial-author span');
+    const dots = document.querySelectorAll('.nav-dots .dot');
+
+    if (!testimonialQuote || !dots.length) return;
+
+    // Add transition styles
+    testimonialQuote.style.transition = 'opacity 0.3s ease';
+    testimonialAuthor.style.transition = 'opacity 0.3s ease';
+    testimonialCompany.style.transition = 'opacity 0.3s ease';
+
+    // Add click handlers to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showTestimonial(index);
+            resetAutoRotate();
+        });
+    });
+
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        const testimonialSection = document.querySelector('.testimonials-fullscreen');
+        if (!testimonialSection) return;
+
+        const rect = testimonialSection.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (isInView) {
+            if (e.key === 'ArrowLeft') {
+                previousTestimonial();
+            } else if (e.key === 'ArrowRight') {
+                nextTestimonial();
+            }
+        }
+    });
+
+    // Start auto-rotate
+    startAutoRotate();
+}
+
+// Function to update testimonial display
+function showTestimonial(index) {
+    const testimonialQuote = document.querySelector('.testimonial-quote');
+    const testimonialAuthor = document.querySelector('.testimonial-author h4');
+    const testimonialCompany = document.querySelector('.testimonial-author span');
+    const dots = document.querySelectorAll('.nav-dots .dot');
+
+    if (!testimonialQuote) return;
+
+    // Add fade-out effect
+    testimonialQuote.style.opacity = '0';
+    testimonialAuthor.style.opacity = '0';
+    testimonialCompany.style.opacity = '0';
+
+    setTimeout(() => {
+        // Update content
+        testimonialQuote.textContent = `"${testimonials[index].quote}"`;
+        testimonialAuthor.textContent = testimonials[index].author;
+        testimonialCompany.textContent = testimonials[index].company;
+
+        // Update active dot
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+
+        // Fade back in
+        testimonialQuote.style.opacity = '1';
+        testimonialAuthor.style.opacity = '1';
+        testimonialCompany.style.opacity = '1';
+    }, 300);
+
+    currentTestimonialIndex = index;
+}
+
+// Previous testimonial function
+function previousTestimonial() {
+    currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+    resetAutoRotate();
+}
+
+// Next testimonial function
+function nextTestimonial() {
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+    showTestimonial(currentTestimonialIndex);
+    resetAutoRotate();
+}
+
+// Auto-rotate functions
+function startAutoRotate() {
+    testimonialInterval = setInterval(() => {
+        nextTestimonial();
+    }, 8000);
+}
+
+function resetAutoRotate() {
+    clearInterval(testimonialInterval);
+    startAutoRotate();
+}
+
+// Category Work Filtering Functions
+function showCategoryWork(category) {
+    const categoryCards = document.getElementById('categoryCards');
+    const workItems = document.getElementById('workItems');
+    const workGrid = document.getElementById('workGrid');
+    const allWorks = workGrid.querySelectorAll('.work-item');
+    
+    // Add fade-out animation to category cards
+    categoryCards.classList.add('fade-out');
+    
+    // Wait for fade-out animation to complete
+    setTimeout(() => {
+        // Hide category cards
+        categoryCards.style.display = 'none';
+        
+        // Show only the selected category's work items
+        allWorks.forEach(item => {
+            if (item.dataset.category === category) {
+                item.style.display = 'block';
+                item.style.animation = 'fadeInUp 0.6s ease-out';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Display work items container
+        workItems.style.display = 'block';
+        
+        // Trigger fade-in animation
+        setTimeout(() => {
+            workItems.classList.add('fade-in');
+        }, 50);
+        
+        // Smooth scroll to the section
+        const portfolioSection = document.querySelector('.portfolio-teaser');
+        if (portfolioSection) {
+            const offsetTop = portfolioSection.offsetTop - 100;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }, 500);
+}
+
+function showCategories() {
+    const categoryCards = document.getElementById('categoryCards');
+    const workItems = document.getElementById('workItems');
+    
+    // Remove fade-in class and add fade-out to work items
+    workItems.classList.remove('fade-in');
+    
+    // Wait for fade-out animation
+    setTimeout(() => {
+        // Hide work items
+        workItems.style.display = 'none';
+        
+        // Show category cards
+        categoryCards.style.display = 'grid';
+        categoryCards.classList.remove('fade-out');
+        
+        // Smooth scroll to the section
+        const portfolioSection = document.querySelector('.portfolio-teaser');
+        if (portfolioSection) {
+            const offsetTop = portfolioSection.offsetTop - 100;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }, 300);
 }
 
 // Add CSS for notifications and animations
