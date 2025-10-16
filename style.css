@@ -245,13 +245,22 @@ p {
     border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    transition: all var(--transition-normal);
+    transition: transform 0.3s ease-in-out, background 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0);
 }
 
 .navbar.scrolled {
     background: rgba(26, 26, 26, 0.98);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
     border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.nav-visible {
+    transform: translateY(0);
 }
 
 .nav-container {
@@ -595,6 +604,8 @@ section {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: all var(--transition-normal);
     height: 400px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .category-card:hover {
@@ -614,6 +625,8 @@ section {
     object-fit: cover;
     display: block;
     transition: transform var(--transition-slow);
+    pointer-events: none;
+    user-select: none;
 }
 
 .category-card:hover .category-image {
@@ -780,21 +793,22 @@ section {
 .portfolio-item {
     position: relative;
     border-radius: var(--radius-xl);
-    overflow: visible;
+    overflow: hidden;
     background: transparent;
+    transition: all var(--transition-normal);
+    border: none;
     box-shadow: none;
-    transition: transform var(--transition-normal);
 }
 
 .portfolio-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
 }
 
 .portfolio-image {
     position: relative;
-    height: 400px;
     overflow: hidden;
-    aspect-ratio: 16/9;
+    background: transparent;
+    height: auto;
 }
 
 .image-placeholder {
@@ -1033,65 +1047,67 @@ section {
 
 .website-screenshot {
     width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: var(--radius-lg);
+    height: 100%;
+    object-fit: cover;
+    display: block;
     transition: all var(--transition-normal);
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.website-screenshot:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+.portfolio-item:hover .website-screenshot {
+    transform: scale(1.03);
 }
 
-/* Desktop screenshots - smaller, neater display */
+/* Desktop screenshots - fit to photo */
 .portfolio-item:not(.mobile-design) .portfolio-image {
     background: transparent;
     padding: 0;
     border: none;
     box-shadow: none;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     justify-content: center;
 }
 
 .portfolio-item:not(.mobile-design) .website-screenshot {
     width: 100%;
-    max-width: 400px;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: var(--radius-lg);
+    display: block;
 }
 
-/* Mobile screenshot - smaller, neater display */
+/* Mobile screenshot - fit to photo */
 .mobile-screenshot {
     width: 100%;
-    max-width: 200px;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
+    padding: 0;
+    display: block;
     border-radius: var(--radius-lg);
 }
 
 .mobile-design .portfolio-image {
-    background: transparent;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    overflow: visible;
-    max-width: 200px;
-    margin: 0 auto;
+    background: var(--charcoal);
     display: flex;
+    align-items: center;
     justify-content: center;
+    height: 500px;
 }
 
 .mobile-design .website-screenshot {
-    width: 100%;
-    max-width: 200px;
+    max-width: 400px;
     height: auto;
+    max-height: 480px;
     object-fit: contain;
-    border-radius: var(--radius-lg);
+}
+
+/* Remove hover effects for mobile design */
+.mobile-design:hover .website-screenshot {
+    transform: none;
+}
+
+.mobile-design .portfolio-overlay {
+    display: none;
 }
 
 .preview-fallback {
@@ -2159,8 +2175,10 @@ a:focus {
 
 .advantages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .advantage-card {
@@ -2798,8 +2816,10 @@ a:focus {
 
 .advantages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .advantage-item {
@@ -2914,6 +2934,12 @@ a:focus {
         grid-template-columns: 1fr;
         gap: var(--space-6);
     }
+    
+    /* Advantages Grid Mobile */
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
 }
 
 /* Portfolio Page Styles */
@@ -2940,8 +2966,7 @@ a:focus {
 /* Portfolio Filter */
 .portfolio-filter {
     background: var(--charcoal);
-    padding: var(--space-8) 0;
-    border-bottom: 1px solid var(--gray-800);
+    padding: var(--space-16) 0;
 }
 
 .filter-buttons {
@@ -2972,6 +2997,15 @@ a:focus {
 /* Portfolio Showcase */
 .portfolio-showcase {
     background: var(--charcoal-dark);
+    padding: var(--space-16) 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-showcase.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .portfolio-grid {
@@ -2985,10 +3019,12 @@ a:focus {
 .portfolio-item {
     background: transparent;
     border-radius: var(--radius-xl);
-    overflow: visible;
+    overflow: hidden;
     box-shadow: none;
     border: none;
     transition: all var(--transition-normal);
+    width: 100%;
+    max-width: 450px;
 }
 
 .portfolio-item:hover {
@@ -2997,42 +3033,39 @@ a:focus {
 
 .portfolio-image {
     position: relative;
-    height: 400px;
+    height: auto;
     overflow: hidden;
-    aspect-ratio: 16/9;
+    background: transparent;
 }
 
 .portfolio-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(212, 165, 116, 0.95), rgba(184, 115, 51, 0.95));
-    color: var(--charcoal-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-normal);
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.8) 70%, transparent);
+    color: var(--primary-white);
+    padding: var(--space-6);
+    transform: translateY(100%);
+    transition: transform var(--transition-normal);
 }
 
 .portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
+    transform: translateY(0);
 }
 
 .overlay-content {
-    text-align: center;
-    padding: var(--space-6);
+    text-align: left;
 }
 
 .overlay-content h3 {
-    color: var(--charcoal-dark);
+    color: var(--primary-white);
     margin-bottom: var(--space-2);
+    font-size: var(--font-size-xl);
 }
 
 .overlay-content p {
-    color: rgba(26, 26, 26, 0.9);
+    color: var(--gray-200);
     margin-bottom: var(--space-4);
 }
 
@@ -3044,42 +3077,51 @@ a:focus {
 }
 
 .result-item {
-    background: rgba(26, 26, 26, 0.3);
+    background: rgba(212, 165, 116, 0.2);
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
     font-size: var(--font-size-sm);
     font-weight: 500;
+    color: var(--gold-light);
+    border: 1px solid rgba(212, 165, 116, 0.3);
 }
 
 .view-case-btn {
-    background: var(--charcoal-dark);
-    color: var(--gold-light);
+    background: var(--gold-primary);
+    color: var(--charcoal-dark);
     padding: var(--space-3) var(--space-6);
     border-radius: var(--radius-lg);
     text-decoration: none;
     font-weight: 600;
     transition: all var(--transition-normal);
-    border: 2px solid var(--charcoal-dark);
+    border: 2px solid var(--gold-primary);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: var(--space-3);
 }
 
 .view-case-btn:hover {
-    background: var(--charcoal);
+    background: var(--gold-light);
+    border-color: var(--gold-light);
     transform: translateY(-2px);
 }
 
 .portfolio-info {
     padding: var(--space-6);
+    background: var(--charcoal-dark);
 }
 
 .portfolio-info h3 {
     margin-bottom: var(--space-3);
     color: var(--primary-white);
+    font-size: var(--font-size-xl);
 }
 
 .portfolio-info p {
     color: var(--gray-200);
     margin-bottom: var(--space-4);
-    line-height: 1.5;
+    line-height: 1.6;
+    font-size: var(--font-size-base);
 }
 
 .portfolio-tags {

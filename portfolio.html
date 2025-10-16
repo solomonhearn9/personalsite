@@ -42,336 +42,80 @@
         </div>
     </section>
 
-    <!-- Portfolio Filter -->
+    <!-- Portfolio Category Selection -->
     <section class="portfolio-filter">
         <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web-design">Web Design</button>
-                <button class="filter-btn" data-filter="seo">SEO & Local</button>
-                <button class="filter-btn" data-filter="growth">Growth Consulting</button>
-                <button class="filter-btn" data-filter="templates">Templates</button>
+            <!-- Category Cards (Initial View) -->
+            <div class="category-cards-container" id="portfolioCategoryCards">
+                <div class="category-card" data-category="dental" onclick="event.preventDefault(); event.stopPropagation(); showPortfolioCategory('dental'); return false;">
+                    <div class="category-card-inner">
+                        <img src="dentalcard.png" alt="Dental Practices" class="category-image" draggable="false">
+                        <div class="category-overlay">
+                            <h3>Dental Practices</h3>
+                            <p>Click to view projects</p>
+                            <span class="view-icon">→</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="trainer" onclick="event.preventDefault(); event.stopPropagation(); showPortfolioCategory('trainer'); return false;">
+                    <div class="category-card-inner">
+                        <img src="trainercard.png" alt="Training Programs" class="category-image" draggable="false">
+                        <div class="category-overlay">
+                            <h3>Training Programs</h3>
+                            <p>Click to view projects</p>
+                            <span class="view-icon">→</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
-    <section class="portfolio-showcase">
+    <!-- Portfolio Showcase (Hidden by default, shown when category is clicked) -->
+    <section class="portfolio-showcase" id="portfolioShowcase" style="display: none;">
         <div class="container">
-            <div class="portfolio-grid">
+            <div class="back-button-container">
+                <button class="back-to-categories" onclick="showPortfolioCategories()">
+                    <span>←</span> Back to Categories
+                </button>
+            </div>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Luxe Dental -->
+                <div class="portfolio-item" data-category="dental">
+                    <div class="portfolio-image">
+                        <a href="#" class="website-preview clickable-preview" title="Visit Luxe Dental Website">
+                            <img src="proj4.png" alt="Luxe Dental Website Preview" class="website-screenshot">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Boston Dental Care -->
+                <div class="portfolio-item" data-category="dental">
+                    <div class="portfolio-image">
+                        <a href="https://bridge-basketball.com" target="_blank" class="website-preview clickable-preview" title="Visit Boston Dental Care Website">
+                            <img src="proj2.png" alt="Boston Dental Care Website Preview" class="website-screenshot">
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Cambridge Dental Practice Case Study -->
-                <div class="portfolio-item" data-category="web-design seo">
+                <div class="portfolio-item" data-category="dental">
                     <div class="portfolio-image">
                         <a href="https://alvarezdental.vercel.app" target="_blank" class="website-preview clickable-preview" title="Visit Cambridge Dental Practice Website">
                             <img src="proj1.png" alt="Cambridge Dental Practice Website Preview" class="website-screenshot">
                         </a>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Cambridge Dental Practice</h3>
-                                <p>Complete digital transformation</p>
-                                <div class="results-preview">
-                                    <span class="result-item">240% ↑ Patient Calls</span>
-                                    <span class="result-item">#1 "Dentist Near Me"</span>
-                                    <span class="result-item">Automated Booking</span>
-                                </div>
-                                <button class="view-case-btn" data-case="dental">View Case Study</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Cambridge Dental Practice</h3>
-                        <p>Complete digital transformation for established Cambridge dentist. Patient inquiries increased 240% in first 60 days through website optimization, Google Business Profile overhaul, and local SEO strategy.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Patient Acquisition</span>
-                            <span class="tag">Local SEO</span>
-                            <span class="tag">Google Business</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bridge Basketball Training -->
-                <div class="portfolio-item" data-category="web-design growth">
-                    <div class="portfolio-image">
-                        <a href="https://bridge-basketball.com" target="_blank" class="website-preview clickable-preview" title="Visit Bridge Basketball Training Website">
-                            <img src="proj2.png" alt="Bridge Basketball Training Website Preview" class="website-screenshot">
-                        </a>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Bridge Basketball Training</h3>
-                                <p>Elite basketball coaching platform</p>
-                                <div class="results-preview">
-                                    <span class="result-item">250% ↑ Training Bookings</span>
-                                    <span class="result-item">85% Conversion Rate</span>
-                                </div>
-                                <button class="view-case-btn" data-case="trainer">View Case Study</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Bridge Basketball Training</h3>
-                        <p>Professional website and booking platform for elite basketball training services</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">Growth Strategy</span>
-                            <span class="tag">Sports Training</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Serenity Med Spa -->
-                <div class="portfolio-item" data-category="seo growth">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder medspa-case"></div>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Serenity Med Spa</h3>
-                                <p>Local SEO domination strategy</p>
-                                <div class="results-preview">
-                                    <span class="result-item">180% ↑ Website Traffic</span>
-                                    <span class="result-item">Top 3 Local Rankings</span>
-                                </div>
-                                <button class="view-case-btn" data-case="medspa">View Case Study</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Serenity Med Spa</h3>
-                        <p>Local SEO strategy and digital marketing optimization for med spa services</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">SEO</span>
-                            <span class="tag">Local Marketing</span>
-                            <span class="tag">Growth Consulting</span>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Mobile Design Example -->
-                <div class="portfolio-item mobile-design" data-category="web-design">
+                <div class="portfolio-item mobile-design" data-category="trainer">
                     <div class="portfolio-image">
                         <a href="#" class="website-preview clickable-preview" title="Mobile Design Example">
                             <img src="proj3.png" alt="Mobile Design Example" class="website-screenshot mobile-screenshot">
                         </a>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Mobile Design Excellence</h3>
-                                <p>Responsive mobile-first design</p>
-                                <div class="results-preview">
-                                    <span class="result-item">100% Mobile Optimized</span>
-                                    <span class="result-item">Fast Loading</span>
-                                </div>
-                                <button class="view-case-btn" data-case="mobile">View Design</button>
-                            </div>
-                        </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Mobile Design Excellence</h3>
-                        <p>Responsive mobile-first design showcasing modern UI/UX principles</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Mobile Design</span>
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Responsive</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Services Template -->
-                <div class="portfolio-item" data-category="templates">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder template-case"></div>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Professional Services Template</h3>
-                                <p>Ready-to-use website template</p>
-                                <div class="results-preview">
-                                    <span class="result-item">$497 One-Time</span>
-                                    <span class="result-item">Fully Customizable</span>
-                                </div>
-                                <button class="view-case-btn" data-case="template">View Template</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Professional Services Template</h3>
-                        <p>High-converting website template for service-based businesses</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Template</span>
-                            <span class="tag">Web Design</span>
-                            <span class="tag">Conversion Optimized</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Legal Practice -->
-                <div class="portfolio-item" data-category="web-design seo">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder legal-case"></div>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Downtown Legal Group</h3>
-                                <p>Professional legal website</p>
-                                <div class="results-preview">
-                                    <span class="result-item">200% ↑ Lead Quality</span>
-                                    <span class="result-item">50% Faster Load Time</span>
-                                </div>
-                                <button class="view-case-btn" data-case="legal">View Case Study</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Downtown Legal Group</h3>
-                        <p>Professional website redesign and SEO optimization for law firm</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">SEO</span>
-                            <span class="tag">Professional Services</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Wellness Center -->
-                <div class="portfolio-item" data-category="growth seo">
-                    <div class="portfolio-image">
-                        <div class="image-placeholder wellness-case"></div>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Harmony Wellness Center</h3>
-                                <p>Holistic growth strategy</p>
-                                <div class="results-preview">
-                                    <span class="result-item">150% ↑ Revenue</span>
-                                    <span class="result-item">300% ↑ Social Engagement</span>
-                                </div>
-                                <button class="view-case-btn" data-case="wellness">View Case Study</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Harmony Wellness Center</h3>
-                        <p>Comprehensive digital marketing strategy for wellness and holistic health services</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Growth Consulting</span>
-                            <span class="tag">SEO</span>
-                            <span class="tag">Social Media</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Study Modal -->
-    <div id="case-study-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="case-study-content">
-                <!-- Content will be dynamically loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Template Showcase -->
-    <section class="template-showcase">
-        <div class="container">
-            <h2 class="section-title">Ready-to-Use Templates</h2>
-            <p class="section-subtitle">High-converting website templates for service-based businesses</p>
-            
-            <div class="templates-grid">
-                <div class="template-card">
-                    <div class="template-image">
-                        <div class="image-placeholder dental-template"></div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Dental Practice Template</h3>
-                        <p>Complete website template for dental practices with appointment booking, patient portal, and SEO optimization. Based on Alvarez Dental Group's successful design.</p>
-                        <div class="template-features">
-                            <span class="feature">Responsive Design</span>
-                            <span class="feature">Appointment Booking</span>
-                            <span class="feature">SEO Optimized</span>
-                            <span class="feature">Patient Portal</span>
-                        </div>
-                        <div class="template-pricing">
-                            <span class="price">$497</span>
-                            <a href="contact.html" class="btn btn-primary">Purchase Template</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="template-card">
-                    <div class="template-image">
-                        <div class="image-placeholder trainer-template"></div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Sports Training Template</h3>
-                        <p>Professional template for sports trainers and coaches with booking features and training program management. Inspired by Bridge Basketball's success.</p>
-                        <div class="template-features">
-                            <span class="feature">Training Booking</span>
-                            <span class="feature">Program Management</span>
-                            <span class="feature">Payment Integration</span>
-                            <span class="feature">Mobile Optimized</span>
-                        </div>
-                        <div class="template-pricing">
-                            <span class="price">$597</span>
-                            <a href="contact.html" class="btn btn-primary">Purchase Template</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="template-card">
-                    <div class="template-image">
-                        <div class="image-placeholder professional-template"></div>
-                    </div>
-                    <div class="template-info">
-                        <h3>Professional Services Template</h3>
-                        <p>Versatile template for consultants, agencies, and professional service providers with lead generation focus.</p>
-                        <div class="template-features">
-                            <span class="feature">Lead Generation</span>
-                            <span class="feature">Portfolio Showcase</span>
-                            <span class="feature">Testimonials</span>
-                            <span class="feature">Contact Forms</span>
-                        </div>
-                        <div class="template-pricing">
-                            <span class="price">$397</span>
-                            <a href="contact.html" class="btn btn-primary">Purchase Template</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Summary -->
-    <section class="results-summary">
-        <div class="container">
-            <h2 class="section-title">Cumulative Results</h2>
-            <div class="results-grid">
-                <div class="result-stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Projects Completed</span>
-                </div>
-                <div class="result-stat">
-                    <span class="stat-number">340%</span>
-                    <span class="stat-label">Average ROI Increase</span>
-                </div>
-                <div class="result-stat">
-                    <span class="stat-number">$2.5M+</span>
-                    <span class="stat-label">Additional Revenue Generated</span>
-                </div>
-                <div class="result-stat">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Client Satisfaction Rate</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="portfolio-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Join These Success Stories?</h2>
-                <p>Let's discuss how I can help your service-based business achieve similar results through strategic digital growth.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Start Your Project</a>
-                    <a href="services.html" class="btn btn-secondary">View Services</a>
                 </div>
             </div>
         </div>

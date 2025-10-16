@@ -450,16 +450,57 @@ function initNewsletterSignup() {
     }
 }
 
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// Parallax Effects
+function initParallaxEffects() {
+    // Placeholder for parallax effects functionality
+    // Can be expanded in the future for parallax scrolling effects
+}
+
+// Scroll Reveal Animations
+function initScrollReveal() {
+    // Placeholder for scroll reveal functionality
+    // Already handled by initScrollAnimations() function
+}
+
+// Navbar Effects - Initialize navbar scroll behavior
+function initNavbarEffects() {
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Clear the timeout throughout the scroll
+        clearTimeout(scrollTimeout);
+        
+        // Prevent body from jumping when scrollbar appears/disappears
+        scrollTimeout = setTimeout(function() {
+            if (currentScroll > lastScrollTop && currentScroll > 100) {
+                // Scrolling down - hide navbar
+                navbar.classList.add('nav-hidden');
+                navbar.classList.remove('nav-visible');
+            } else if (currentScroll < lastScrollTop) {
+                // Scrolling up - show navbar
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-visible');
+            }
+            
+            // Add scrolled class for background styling when past top
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('nav-hidden');
+                navbar.classList.add('nav-visible');
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        }, 10);
+    });
+}
 
 // Load more articles functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -631,7 +672,7 @@ function resetAutoRotate() {
     startAutoRotate();
 }
 
-// Category Work Filtering Functions
+// Category Work Filtering Functions (Homepage)
 function showCategoryWork(category) {
     const categoryCards = document.getElementById('categoryCards');
     const workItems = document.getElementById('workItems');
@@ -704,6 +745,91 @@ function showCategories() {
     }, 300);
 }
 
+// Portfolio Category Filtering Functions
+function showPortfolioCategory(category) {
+    const categoryCards = document.getElementById('portfolioCategoryCards');
+    const portfolioShowcase = document.getElementById('portfolioShowcase');
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    const allItems = portfolioGrid.querySelectorAll('.portfolio-item');
+    
+    // Add fade-out animation to category cards
+    if (categoryCards) {
+        categoryCards.classList.add('fade-out');
+    }
+    
+    // Wait for fade-out animation to complete
+    setTimeout(() => {
+        // Hide category cards section
+        const filterSection = document.querySelector('.portfolio-filter');
+        if (filterSection) {
+            filterSection.style.display = 'none';
+        }
+        
+        // Show only the selected category's portfolio items
+        allItems.forEach(item => {
+            if (item.dataset.category === category) {
+                item.style.display = 'block';
+                item.style.animation = 'fadeInUp 0.6s ease-out';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        // Display portfolio showcase
+        portfolioShowcase.style.display = 'block';
+        
+        // Trigger fade-in animation
+        setTimeout(() => {
+            portfolioShowcase.classList.add('fade-in');
+        }, 50);
+        
+        // Smooth scroll to the section
+        const heroSection = document.querySelector('.portfolio-hero');
+        if (heroSection) {
+            const offsetTop = heroSection.offsetTop + heroSection.offsetHeight - 50;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }, 500);
+}
+
+function showPortfolioCategories() {
+    const categoryCards = document.getElementById('portfolioCategoryCards');
+    const portfolioShowcase = document.getElementById('portfolioShowcase');
+    const filterSection = document.querySelector('.portfolio-filter');
+    
+    // Remove fade-in class
+    if (portfolioShowcase) {
+        portfolioShowcase.classList.remove('fade-in');
+    }
+    
+    // Wait for fade-out animation
+    setTimeout(() => {
+        // Hide portfolio showcase
+        portfolioShowcase.style.display = 'none';
+        
+        // Show filter section with category cards
+        if (filterSection) {
+            filterSection.style.display = 'block';
+        }
+        
+        if (categoryCards) {
+            categoryCards.classList.remove('fade-out');
+        }
+        
+        // Smooth scroll to the filter section
+        if (filterSection) {
+            const offsetTop = filterSection.offsetTop - 100;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }, 300);
+}
+
 // Add CSS for notifications and animations
 const style = document.createElement('style');
 style.textContent = `
@@ -765,11 +891,6 @@ style.textContent = `
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
     
     .animate-in {
